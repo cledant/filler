@@ -1,0 +1,155 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstread_no_gnl.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/23 11:05:00 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/23 17:08:40 by cledant          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "filler.h"
+
+static t_list		*ft_seek_separator(t_list *sort)
+{
+	t_list		*cpy_sort;
+	t_list		*found;
+	char		*seek;
+	size_t		i;
+
+	i = 0;
+	cpy_sort = sort;
+	found = sort;
+	while (cpy_sort != NULL)
+	{
+		found = cpy_sort;
+		seek = cpy_sort->content;
+		while (i < cpy_sort->content_size - 1)
+		{
+			if (*seek == '\0' || *seek == '\n' || *seek == 26)
+				return (cpy_sort);
+			i++;
+			seek++;
+		}
+		i = 0;
+		cpy_sort = cpy_sort->next;
+	}
+	return (found);
+}
+
+static char			*ft_cpy_end(t_list *end)
+{
+	char	*cpy_cont;
+	size_t	size_cont;
+	char	*new;
+	char	*change;
+
+	size_cont = 0;
+	cpy_cont = end->content;
+	while (*cpy_cont != '\0' && *cpy_cont != '\n' && *cpy_cont != 26)
+	{
+		cpy_cont++;
+		size_cont++;
+	}
+	if ((new = ft_strnew(size_cont)) == NULL)
+		return (NULL);
+	ft_memmove(new, end->content, size_cont);
+	if (*cpy_cont == '\n')
+	{
+		if ((change = ft_strdup(cpy_cont + 1)) == NULL)
+		{
+			ft_strdel(&new);
+			return (NULL);
+		}
+		ft_memdel(&(end->content));
+		end->content = change;
+		end->content_size = ft_strlen(change) + 1;
+	}
+	else
+	{
+		if ((change = ft_strnew(0)) == NULL)
+			return (NULL);
+		ft_memdel(&(end->content));
+		end->content = change;
+	}
+	return (new);
+}
+
+static char			*ft_cpy_till_separetor(t_list *begin, t_list *end)
+{
+	char	*new;
+	char	*next_new;
+	char	*ret;
+
+	if ((new = ft_strnew(0)) == NULL)
+		return (NULL);
+	while (begin != end && begin != NULL)
+	{
+		if ((next_new = ft_strjoin(new, begin->content)) == NULL)
+			return (NULL);
+		ft_strdel(&new);
+		new = next_new;
+		begin = begin->next;
+	}
+	if ((next_new = ft_cpy_end(end)) == NULL)
+	{
+		ft_strdel(&new);
+		return (NULL);
+	}
+	if ((ret = ft_strjoin(new, next_new)) == NULL)
+	{
+		ft_strdel(&new);
+		ft_strdel(&next_new);
+		return (NULL);
+	}
+	ft_strdel(&new);
+	ft_strdel(&next_new);
+	return (ret);
+}
+
+static t_list		*ft_sort_by_line(t_list *sort)
+{
+	t_list		*cpy_sort;
+	t_list		*new;
+	t_list		*end;
+	char		*cpy;
+
+	cpy_sort = sort;
+	new = NULL;
+	while (cpy_sort != NULL)
+	{
+		end = ft_seek_separator(cpy_sort);
+		if ((cpy = ft_cpy_till_separetor(cpy_sort, end)) == NULL)
+			return (NULL);
+		ft_putendl(cpy);
+		if ((new = ft_lstnewpushback(new, cpy, ft_strlen(cpy) + 1)) == NULL)
+		{
+			ft_strdel(&cpy);
+			return (NULL);
+		}
+		ft_strdel(&cpy);
+		while (cpy_sort != end)
+			cpy_sort = cpy_sort->next;
+		if ((char)cpy_sort->content == '\0' || (char)cpy_sort->content == 26)
+			return (new);
+	}
+	return (new);
+}
+
+t_list				*ft_lstread_file_no_gnl(int fd)
+{
+	t_list		*tmp;
+	t_list		*final;
+
+	if ((tmp = ft_lstreadraw_file(fd)) == NULL)
+		return (NULL);
+	if ((final = ft_sort_by_line(tmp)) == NULL)
+	{
+//		ft_lstdel(&tmp, &ft_free_content);
+		return (NULL);
+	}
+//	ft_lstdel(&tmp, &ft_free_content);
+	return (final);
+}

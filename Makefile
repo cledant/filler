@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/05/18 11:48:23 by cledant          ###   ########.fr        #
+#    Updated: 2016/05/23 18:15:02 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ INCLUDES_LIBFT = ./libft/includes
 
 LIBFT_PATH = ./libft
 
-SRC_NAME = main.c
+SRC_NAME = main.c ft_lstreadraw_file.c ft_lstread_file_no_gnl.c \
+		   ft_lstnewpushback.c ft_strnlen.c ft_strjoin_n_s2.c
 
 SRC_PATH = ./srcs/
 

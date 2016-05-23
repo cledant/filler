@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnewpushback.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/18 11:48:25 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/23 20:27:09 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/23 12:20:04 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/23 14:58:17 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-#include <fcntl.h>
 
-int		main(void)
+t_list		*ft_lstnewpushback(t_list *new, void *buff, size_t size)
 {
-	t_list	*list;
-	t_list	*cpy_list;
-	int		fd;
+	t_list	*after;
 
-	fd = open("./srcs/main.c", O_RDONLY);
-	list = ft_lstread_file_no_gnl(fd);
-	cpy_list = list;
-	while (list != NULL)
+	if (new == NULL)
 	{
-		ft_putendl("============");
-		ft_putendl(list->content);
-		ft_putendl("============");
-		list = list->next;
+		if ((new = ft_lstnew(buff, size)) == NULL)
+			return (NULL);
 	}
-//	ft_lstdel(&cpy_list, &ft_free_content);
-	return (0);
+	else
+	{
+		if ((after = ft_lstnew(buff, size)) == NULL)
+		{
+			ft_lstdel(&new, &ft_free_content);
+			return (NULL);
+		}
+		ft_lstpushback(new, after);
+	}
+	return (new);
 }

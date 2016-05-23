@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstreadraw_file.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/18 11:48:25 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/23 20:27:09 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/23 13:48:56 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/23 14:55:21 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-#include <fcntl.h>
 
-int		main(void)
+t_list		*ft_lstreadraw_file(int fd)
 {
-	t_list	*list;
-	t_list	*cpy_list;
-	int		fd;
+	char	*buff[BUFF_SIZE + 1];
+	t_list	*new;
 
-	fd = open("./srcs/main.c", O_RDONLY);
-	list = ft_lstread_file_no_gnl(fd);
-	cpy_list = list;
-	while (list != NULL)
+	new = NULL;
+	ft_bzero(buff, BUFF_SIZE);
+	while ((read(fd, buff, BUFF_SIZE)) > 0)
 	{
-		ft_putendl("============");
-		ft_putendl(list->content);
-		ft_putendl("============");
-		list = list->next;
+		if ((new = ft_lstnewpushback(new, buff, BUFF_SIZE + 1)) == NULL)
+			return (NULL);
+		ft_bzero(buff, BUFF_SIZE);
 	}
-//	ft_lstdel(&cpy_list, &ft_free_content);
-	return (0);
+	return (new);
 }

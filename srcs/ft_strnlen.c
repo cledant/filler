@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/18 11:48:25 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/23 20:27:09 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/23 18:03:39 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/23 18:23:20 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
-#include <fcntl.h>
+#include "libft.h"
 
-int		main(void)
+size_t	ft_strnlen(const char *s, size_t len)
 {
-	t_list	*list;
-	t_list	*cpy_list;
-	int		fd;
+	size_t	length;
 
-	fd = open("./srcs/main.c", O_RDONLY);
-	list = ft_lstread_file_no_gnl(fd);
-	cpy_list = list;
-	while (list != NULL)
+	length = 0;
+	while (*s != '\0' && length < len)
 	{
-		ft_putendl("============");
-		ft_putendl(list->content);
-		ft_putendl("============");
-		list = list->next;
+		length++;
+		s++;
 	}
-//	ft_lstdel(&cpy_list, &ft_free_content);
-	return (0);
+	return (length);
 }

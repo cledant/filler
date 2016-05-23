@@ -1,0 +1,100 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstread_no_gnl.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/23 11:05:00 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/23 18:33:27 by cledant          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "filler.h"
+
+static long int		ft_check_content(t_list *list)
+{
+	char		*cpy_content;
+	size_t		i;
+
+	i = 0;
+	cpy_content = list->content;
+	while (i < list->content_size - 1)
+	{
+		if (*cpy_content == '\0' || *cpy_content == '\n' ||
+				*cpy_content == 26)
+			return (i);
+		i++;
+		cpy_content++;
+	}
+	return (-1);
+}
+
+static char			*ft_cpy_till_separetor(t_list **begin)
+{
+	char	*new;
+	char	*next_new;
+	size_t	loc;
+
+	if ((new = ft_strnew(0)) == NULL)
+		return (NULL);
+	while (*begin != NULL)
+	{
+		if ((loc = ft_check_content(*begin) == -1))
+		{
+			next_new = ft_strjoin(new, (*begin)->content);
+			ft_strdel(&new);
+			new = next_new;
+		}
+		else
+		{
+			next_new = ft_strjoin_n_s2(new, (*begin)->content, loc);
+			ft_strdel(&new);
+			new = next_new;
+			return (new);
+		}
+		*begin = (*begin)->next;
+	}
+	return (new);
+}
+
+static t_list		*ft_sort_by_line(t_list *sort)
+{
+	t_list		*cpy_sort;
+	t_list		*new;
+	char		*cpy;
+
+	cpy_sort = sort;
+	new = NULL;
+	while (cpy_sort != NULL)
+	{
+		if ((cpy = ft_cpy_till_separetor(&cpy_sort)) == NULL)
+			return (NULL);
+		ft_putendl(cpy);
+		if ((new = ft_lstnewpushback(new, cpy, ft_strlen(cpy) + 1)) == NULL)
+		{
+			ft_strdel(&cpy);
+			return (NULL);
+		}
+		ft_strdel(&cpy);
+		if (ft_check_content(cpy_sort) != -1)
+			return (new);
+	}
+	return (new);
+}
+
+t_list				*ft_lstread_file_no_gnl(int fd)
+{
+	t_list		*tmp;
+	t_list		*final;
+
+	if ((tmp = ft_lstreadraw_file(fd)) == NULL)
+		return (NULL);
+	if ((final = ft_sort_by_line(tmp)) == NULL)
+	{
+//		ft_lstdel(&tmp, &ft_free_content);
+		return (NULL);
+	}
+//	ft_lstdel(&tmp, &ft_free_content);
+	return (final);
+}
