@@ -6,13 +6,13 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/05/27 18:18:24 by cledant          ###   ########.fr        #
+#    Updated: 2016/05/26 18:30:22 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-//CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 INCLUDES = ./includes
 
@@ -20,8 +20,7 @@ INCLUDES_LIBFT = ./libft/includes
 
 LIBFT_PATH = ./libft
 
-SRC_NAME = main.c ft_lstnewpushback.c ft_lstreadraw_file.c ft_lstgnl.c \
-		   ft_add_char.c
+SRC_NAME = main.c ft_lstnewpushback.c ft_lstreadraw_file.c
  
 SRC_PATH = ./srcs/
 

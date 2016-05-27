@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.h                                           :+:      :+:    :+:   */
+/*   ft_lstreadraw_file.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/18 11:44:21 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/27 17:44:58 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/23 13:48:56 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/27 13:48:02 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLER_H
-# define FILLER_H
+#include "filler.h"
 
-# include "libft.h"
+t_list		*ft_lstreadraw_file(int fd)
+{
+	char	*buff[BUFF_SIZE + 1];
+	t_list	*new;
+	int		ret;
 
-t_list	*ft_lstnewpushback(t_list *new, void *buff, size_t size);
-t_list	*ft_lstreadraw_file(int fd);
-t_list	*ft_lstgnl(t_list *read_1, t_list *read_2);
-char	*ft_add_char(char *dst, char add);
-
-#endif
+	new = NULL;
+	ft_bzero(buff, BUFF_SIZE + 1);
+	if ((ret = read(fd, buff, BUFF_SIZE)) == -1)
+		return (NULL);
+	if ((new = ft_lstnewpushback(new, buff, ret + 1)) == NULL)
+		return (NULL);
+	return (new);
+}

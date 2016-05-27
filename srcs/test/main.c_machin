@@ -1,0 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/18 11:48:25 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/26 17:45:53 by cledant          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "filler.h"
+#include <fcntl.h>
+
+int		main(void)
+{
+	t_list	*list;
+	t_list	*cpy_list;
+	int		fd;
+	char	buf[11];
+
+	list = NULL;
+	while (1)
+	{
+		ft_bzero(buf, 11);
+		fd = open("./input", O_RDWR | O_CREAT | O_APPEND);
+		ft_putendl_fd("JE READ", fd);
+		list = ft_lstread_file(0);
+		ft_putendl_fd("FINIT READ", fd);
+		cpy_list = list;
+		while (list != NULL)
+		{
+			ft_putendl_fd(list->content, fd);
+			list = list->next;
+		}
+		ft_putendl_fd("FIN TRUC", fd);
+		ft_lstdel(&cpy_list, &ft_lstfree_malloc);
+		list = NULL;
+//		while (read(0, buf, 10) > 0)
+//			ft_putstr_fd(buf, fd);
+		ft_putendl("7 14");
+	}
+	return (0);
+}
