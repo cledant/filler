@@ -42,7 +42,7 @@ static t_list	*ft_lstnext_line(t_list *new, t_list *list)
 				{
 					if (new != NULL)
 						ft_lstdel(&new, ft_lstfree_malloc);
-					return (0);
+					return (NULL);
 				}
 				if ((new = ft_lstnewpushback(new, new_c,
 								ft_strlen(new_c) + 1)) == NULL)
@@ -61,14 +61,12 @@ static t_list	*ft_lstnext_line(t_list *new, t_list *list)
 	return (new);
 }
 
-t_list			*ft_lstgnl(t_list *read_1, t_list *read_2)
+t_list			*ft_lstgnl(t_list *read_1)
 {
 	t_list	*new;
 
 	new = NULL;
 	if ((new = ft_lstnext_line(new, read_1)) == NULL)
-		return (NULL);
-	if ((new = ft_lstnext_line(new, read_2)) == NULL)
 		return (NULL);
 	return (new);
 }

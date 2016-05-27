@@ -20,9 +20,12 @@ t_list		*ft_lstreadraw_file(int fd)
 
 	new = NULL;
 	ft_bzero(buff, BUFF_SIZE + 1);
-	if ((ret = read(fd, buff, BUFF_SIZE)) == -1)
-		return (NULL);
-	if ((new = ft_lstnewpushback(new, buff, ret + 1)) == NULL)
-		return (NULL);
+	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
+	{
+		if ((new = ft_lstnewpushback(new, buff, ret + 1)) == NULL)
+			return (NULL);
+
+		ft_bzero(buff, BUFF_SIZE + 1);
+	}
 	return (new);
 }

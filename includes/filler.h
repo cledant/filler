@@ -17,7 +17,7 @@
 
 t_list	*ft_lstnewpushback(t_list *new, void *buff, size_t size);
 t_list	*ft_lstreadraw_file(int fd);
-t_list	*ft_lstgnl(t_list *read_1, t_list *read_2);
+t_list	*ft_lstgnl(t_list *read_1);
 char	*ft_add_char(char *dst, char add);
 
 #endif

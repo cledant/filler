@@ -18,10 +18,9 @@ char	*ft_add_char(char *dst, char add)
 	char	*cpy_new;
 	size_t	len;
 
+	len = 0;
 	if (dst != NULL)
 		len = ft_strlen(dst);
-	else
-		len = 0;
 	if ((new = ft_strnew(len + 1)) == NULL)
 	{
 		if (dst != NULL)
