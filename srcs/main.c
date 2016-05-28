@@ -6,11 +6,12 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 11:01:54 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 14:56:02 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/28 17:37:13 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+#include <fcntl.h>
 
 int		main(void)
 {
@@ -27,6 +28,10 @@ int		main(void)
 	if (ft_env_setsize(env) == 0)
 		return (0);
 	if (ft_env_isolate_map(env) == 0)
+		return (0);
+	if (ft_env_setpiecesize(env) == 0)
+		return (0);
+	if (ft_env_isolate_piece(env) == 0)
 		return (0);
 	if ((play = ft_turn(env)) == NULL)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 10:47:49 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 15:08:04 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/28 16:18:39 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_list		*ft_read_fd_0(void)
 {
 	t_list	*read_1;
 	t_list	*gnl;
+	t_list	*cpy_gnl;
 	t_list	*cpy_read_1;
 	int		fd;
 
@@ -38,10 +39,11 @@ t_list		*ft_read_fd_0(void)
 		return (NULL);
 	}
 	ft_putendl_fd("GNL OK", fd);
-	while (gnl != NULL)
+	cpy_gnl = gnl;
+	while (cpy_gnl != NULL)
 	{
-		ft_putendl_fd(gnl->content, fd);
-		gnl = gnl->next;
+		ft_putendl_fd(cpy_gnl->content, fd);
+		cpy_gnl = cpy_gnl->next;
 	}
 	ft_lstdel(&read_1, ft_lstfree_malloc);
 	close(fd);

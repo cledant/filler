@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 14:58:54 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 15:12:36 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/28 17:21:24 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,26 @@
 
 char	*ft_turn(t_env *env)
 {
-	int fd;
+	int		fd;
+	size_t	i;
 
 	fd = open("./check", O_RDWR | O_APPEND);
-	ft_putendl_fd("READ MAP SEULE", 2);
-	ft_putendl_fd_char2(env->map, fd);
-	ft_putendl_fd("FIN READ MAP SEULE", 2);
+	ft_putendl_fd("READ MAP SEULE", fd);
+	i = 0;
+	while (i < env->size_line)
+	{
+		ft_putendl_fd(env->map[i], fd);
+		i++;
+	}
+	ft_putendl_fd("FIN READ MAP SEULE", fd);
+	ft_putendl_fd("READ PIECE SEULE", fd);
+	i = 0;
+	while (i < env->p_size_line)
+	{
+		ft_putendl_fd(env->piece[i], fd);
+		i++;
+	}
+	ft_putendl_fd("FIN READ PIECE SEULE", fd);
 	close(fd);
 	ft_env_reset(env);
 	return (NULL);

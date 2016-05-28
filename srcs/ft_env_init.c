@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 11:19:27 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 15:17:52 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/28 17:02:27 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ t_env	*ft_env_init(void)
 		return (NULL);
 	new->player = 0;
 	new->size_col = 0;
-	new->size_col = 0;
+	new->size_line = 0;
 	new->gnl = NULL;
 	new->map = NULL;
+	new->p_size_col = 0;
+	new->p_size_line = 0;
+	new->piece = NULL;
 	return (new);
 }

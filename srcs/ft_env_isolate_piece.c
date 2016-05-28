@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env_isolate_map.c                               :+:      :+:    :+:   */
+/*   ft_env_isolate_piece.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/28 13:39:14 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 16:43:34 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/28 17:03:58 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/28 17:36:21 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static void		ft_reset(t_env *env, char ***new)
 	ft_env_reset(env);
 }
 
-int				ft_env_isolate_map(t_env *env)
+int				ft_env_isolate_piece(t_env *env)
 {
 	char	**new;
 	t_list	*cpy_env;
 	size_t	i;
 
-	if ((new = ft_strnew_char2(env->size_line)) == NULL)
+	if ((new = ft_strnew_char2(env->p_size_line)) == NULL)
 	{
 		ft_env_reset(env);
 		return (0);
@@ -33,17 +33,17 @@ int				ft_env_isolate_map(t_env *env)
 	cpy_env = env->gnl;
 	i = 0;
 	while (cpy_env != NULL && ft_strstr(cpy_env->content,
-				"Plateau") == NULL)
+				"Piece") == NULL)
 		cpy_env = cpy_env->next;
-	while (cpy_env != NULL && i < 2)
+	while (cpy_env != NULL && i < 1)
 	{
 		cpy_env = cpy_env->next;
 		i++;
 	}
 	i = 0;
-	while (cpy_env != NULL && i < env->size_line)
+	while (cpy_env != NULL && i < env->p_size_line)
 	{
-		if ((new[i] = ft_strdup(cpy_env->content + 4)) == NULL)
+		if ((new[i] = ft_strdup(cpy_env->content)) == NULL)
 		{
 			ft_reset(env, &new);
 			return (0);
@@ -51,6 +51,6 @@ int				ft_env_isolate_map(t_env *env)
 		cpy_env = cpy_env->next;
 		i++;
 	}
-	env->map = new;
+	env->piece = new;
 	return (1);
 }
