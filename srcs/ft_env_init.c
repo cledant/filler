@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstreadraw_file.c                               :+:      :+:    :+:   */
+/*   ft_env_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/23 13:48:56 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 10:32:46 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/28 11:19:27 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/28 11:23:59 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-t_list		*ft_lstreadraw_file(int fd)
+t_env	*ft_env_init(void)
 {
-	char	*buff[BUFF_SIZE + 1];
-	t_list	*new;
-	int		ret;
+	t_env	*new;
 
-	new = NULL;
-	ft_bzero(buff, BUFF_SIZE + 1);
-	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
-	{
-		if ((new = ft_lstnewpushback(new, buff, ret + 1)) == NULL)
-		{
-			if (new != NULL)
-				ft_lstdel(&new, ft_lstfree_malloc);
-			return (NULL);
-		}
-		ft_bzero(buff, BUFF_SIZE + 1);
-	}
-	if (ret == -1)
-	{
-		if (new != NULL)
-			ft_lstdel(&new, ft_lstfree_malloc);
+	if ((new = (t_env *)malloc(sizeof(t_env * 1))) == NULL)
 		return (NULL);
-	}
+	new->player = 0;
+	new->size_col = 0;
+	new->size_col = 0;
+	new->gnl = NULL;
+	new->map = NULL;
 	return (new);
 }
