@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 11:01:54 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 12:12:42 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/28 14:56:02 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ int		main(void)
 		return (0);
 	if (ft_env_isolate_map(env) == 0)
 		return (0);
-	play = ft_turn(env);
+	if ((play = ft_turn(env)) == NULL)
+		return (0);
+	ft_putendl(play);
 	ft_lstdel(&env->gnl, ft_lstfree_malloc);
 	ft_strdel(&play);
-	ft_strdel(&env->map);
+	ft_strdel_char2(&env->map);
 	env->size_col = 0;
 	env->size_line = 0;
 	return (0);

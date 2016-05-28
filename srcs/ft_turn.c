@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env_setsize.c                                   :+:      :+:    :+:   */
+/*   ft_turn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/28 12:00:37 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 14:47:34 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/28 14:58:54 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/28 15:12:36 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+#include <fcntl.h>
 
-int		ft_env_setsize(t_env *env)
+char	*ft_turn(t_env *env)
 {
-	t_list	*cpy_gnl;
-	char	**split;
+	int fd;
 
-	cpy_gnl = env->gnl;
-	while (cpy_gnl != NULL)
-	{
-		if (ft_strstr(cpy_gnl->content, "Plateau") != NULL)
-		{
-			if ((split = ft_strsplit(cpy_gnl->content, ' ')) == NULL)
-			{
-				ft_env_reset(env);
-				return (0);
-			}
-			env->size_line = ft_atoi(split[1]);
-			env->size_col = ft_atoi(split[2]);
-			ft_strdel_char2(&split);
-			return (1);
-		}
-		cpy_gnl = cpy_gnl->next;
-	}
+	fd = open("./check", O_RDWR | O_APPEND);
+	ft_putendl_fd("READ MAP SEULE", 2);
+	ft_putendl_fd_char2(env->map, fd);
+	ft_putendl_fd("FIN READ MAP SEULE", 2);
+	close(fd);
 	ft_env_reset(env);
-	return (0);
+	return (NULL);
 }

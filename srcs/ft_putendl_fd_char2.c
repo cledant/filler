@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env_init.c                                      :+:      :+:    :+:   */
+/*   ft_putendl_fd_char2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/28 11:19:27 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 15:17:52 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/28 15:13:27 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/28 15:16:39 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-t_env	*ft_env_init(void)
+void	ft_putendl_fd_char2(char **str, int fd)
 {
-	t_env	*new;
-
-	if ((new = (t_env *)malloc(sizeof(t_env) * 1)) == NULL)
-		return (NULL);
-	new->player = 0;
-	new->size_col = 0;
-	new->size_col = 0;
-	new->gnl = NULL;
-	new->map = NULL;
-	return (new);
+	while (*str != '\0')
+	{
+		ft_putendl_fd(*str, fd);
+		str++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 10:47:49 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 11:50:35 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/28 15:08:04 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_list		*ft_read_fd_0(void)
 {
 	t_list	*read_1;
 	t_list	*gnl;
-	t_list	*cpy_gnl;
 	t_list	*cpy_read_1;
 	int		fd;
 

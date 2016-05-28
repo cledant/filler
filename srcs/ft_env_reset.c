@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env_init.c                                      :+:      :+:    :+:   */
+/*   ft_env_reset.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/28 11:19:27 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 15:17:52 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/28 14:40:12 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/28 15:16:29 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-t_env	*ft_env_init(void)
+void		ft_env_reset(t_env *env)
 {
-	t_env	*new;
-
-	if ((new = (t_env *)malloc(sizeof(t_env) * 1)) == NULL)
-		return (NULL);
-	new->player = 0;
-	new->size_col = 0;
-	new->size_col = 0;
-	new->gnl = NULL;
-	new->map = NULL;
-	return (new);
+	env->player = 0;
+	env->size_col = 0;
+	env->size_line = 0;
+	if (env->gnl != NULL)
+		ft_lstdel(&env->gnl, ft_lstfree_malloc);
+	if (env->map != NULL)
+		ft_strdel_char2(&env->map);
 }
