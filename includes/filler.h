@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 11:44:21 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 17:12:59 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/28 18:06:43 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		ft_env_setpiecesize(t_env *env);
 int		ft_env_isolate_map(t_env *env);
 int		ft_env_isolate_piece(t_env *env);
 char	*ft_turn(t_env *env);
+char	*ft_debug_map_piece(t_env *env);
 void	ft_putendl_fd_char2(char **str, int fd);
 char	*ft_add_char(char *dst, char add);
 
