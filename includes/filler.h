@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 11:44:21 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 18:06:43 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/29 15:22:47 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ typedef struct		s_env
 	size_t			p_size_col;
 	size_t			p_size_line;
 	char			**piece;
+	int				me_start[2];
+	int				me_tr[2];
+	int				me_tl[2];
+	int				me_br[2];
+	int				me_bl[2];
 }					t_env;
 
 t_list	*ft_lstnewpushback(t_list *new, void *buff, size_t size);
@@ -39,6 +44,7 @@ int		ft_env_setpiecesize(t_env *env);
 int		ft_env_isolate_map(t_env *env);
 int		ft_env_isolate_piece(t_env *env);
 char	*ft_turn(t_env *env);
+char	*ft_simple_fill(t_env *env, char *me, char *other);
 char	*ft_debug_map_piece(t_env *env);
 void	ft_putendl_fd_char2(char **str, int fd);
 char	*ft_add_char(char *dst, char add);

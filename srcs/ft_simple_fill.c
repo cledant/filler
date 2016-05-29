@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_turn.c                                          :+:      :+:    :+:   */
+/*   ft_simple_fill.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/28 18:08:47 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/29 11:28:34 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/29 11:14:15 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/29 15:11:31 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	ft_turn(t_env *env)
+char	*ft_simple_fill(t_env *env, char *me, char *other)
 {
-	char	*rep;
-
-	if (env->player == 1)
-		rep = ft_simple_fill(env, "Oo", "Xx");
-	else
-		rep = ft_simple_fill(env, "Xx", "Oo");
-	if (rep != NULL)
-	{
-		ft_putendl(rep);
-		ft_strdel(&rep);
-	}
-	else
-		ft_putendl("0 0");
+	if (ft_seek_first(env) == 0)
+		return (NULL);
+	if (ft_)
 }
