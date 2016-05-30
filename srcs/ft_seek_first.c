@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_turn.c                                          :+:      :+:    :+:   */
+/*   ft_seek_first.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/28 18:08:47 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/30 18:27:57 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/30 15:50:21 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/30 16:44:13 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	ft_turn(t_env *env)
+int		ft_seek_first(t_env *env, char *who)
 {
-	char	*rep;
+	size_t	i;
+	size_t	j;
 
-	if (env->player == 1)
-		rep = ft_simple_fill(env, "Oo", "Xx");
-	else
-		rep = ft_simple_fill(env, "Xx", "Oo");
-	if (rep != NULL)
+	i = 0;
+	j = 0;
+	if (env->start[0] != -1 && env->start[1] != -1)
+		return (0);
+	while (j < size_col)
 	{
-		ft_putendl(rep);
-		ft_strdel(&rep);
+		while (j < size_line)
+		{
+			if (env->map[i][j] == who[0] || env->map[i][j] == who[1])
+			{
+				env->start[0] = i;
+				env->start[1] = j;
+				return (1);
+			}
+			j++;
+		}
+		j = 0;
+		i++;
 	}
-	else
-		ft_putendl("0 0");
+	return (0);
 }

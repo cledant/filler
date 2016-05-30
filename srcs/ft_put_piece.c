@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_turn.c                                          :+:      :+:    :+:   */
+/*   ft_put_piece.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/28 18:08:47 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/30 18:27:57 by cledant          ###   ########.fr       */
+/*   Created: 2016/05/30 17:57:14 by cledant           #+#    #+#             */
+/*   Updated: 2016/05/30 18:27:52 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	ft_turn(t_env *env)
+char	*ft_put_piece(t_env *env)
 {
-	char	*rep;
+	char	*ret;
+	int		best[2];
+	size_t	i;
+	size_t	j;
 
-	if (env->player == 1)
-		rep = ft_simple_fill(env, "Oo", "Xx");
-	else
-		rep = ft_simple_fill(env, "Xx", "Oo");
-	if (rep != NULL)
+	i = 0;
+	j = 0;
+	best[0] = -1;
+	best[1] = -1;
+	while (i < env->p_size_line)
 	{
-		ft_putendl(rep);
-		ft_strdel(&rep);
+		while (j < env->p_size_col)
+		{
+			
+		}
 	}
-	else
-		ft_putendl("0 0");
 }

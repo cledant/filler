@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 11:01:54 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/29 11:27:53 by cledant          ###   ########.fr       */
+/*   Updated: 2016/05/30 15:19:48 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ int		main(void)
 	ft_turn(env);
 	ft_lstdel(&env->gnl, ft_lstfree_malloc);
 	ft_strdel_char2(&env->map);
+	ft_strdel_char2(&env->piece);
 	env->size_col = 0;
 	env->size_line = 0;
+	env->p_size_col = 0;
+	env->p_size_line = 0;
 	return (0);
 }
