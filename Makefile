@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/05/28 17:12:44 by cledant          ###   ########.fr        #
+#    Updated: 2016/07/17 17:48:51 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ LIBFT_PATH = ./libft
 SRC_NAME = main.c ft_lstnewpushback.c ft_lstreadraw_file.c ft_lstgnl.c \
 		   ft_add_char.c ft_read_fd_0.c ft_env_setplayer.c ft_env_setsize.c \
 		   ft_env_isolate_map.c ft_turn.c ft_env_reset.c ft_env_init.c \
-		   ft_env_isolate_piece.c ft_env_setpiecesize.c
+		   ft_env_isolate_piece.c ft_env_setpiecesize.c ft_right_left.c \
+		   ft_can_fit.c
  
 SRC_PATH = ./srcs/
 

@@ -6,12 +6,11 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 11:01:54 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 17:37:13 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/17 18:06:57 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-#include <fcntl.h>
 
 int		main(void)
 {

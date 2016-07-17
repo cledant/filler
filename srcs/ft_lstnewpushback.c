@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 12:20:04 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/23 14:58:17 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/17 18:11:39 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list		*ft_lstnewpushback(t_list *new, void *buff, size_t size)
 	{
 		if ((after = ft_lstnew(buff, size)) == NULL)
 		{
-			ft_lstdel(&new, &ft_free_content);
+			ft_lstdel(&new, &ft_lstfree_malloc);
 			return (NULL);
 		}
 		ft_lstpushback(new, after);

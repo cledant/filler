@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 13:48:56 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 10:32:46 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/17 18:29:12 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ t_list		*ft_lstreadraw_file(int fd)
 			return (NULL);
 		}
 		ft_bzero(buff, BUFF_SIZE + 1);
+		if (ret != BUFF_SIZE)
+			break ;
 	}
 	if (ret == -1)
 	{

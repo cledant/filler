@@ -6,36 +6,23 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 14:58:54 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 17:21:24 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/17 17:38:04 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-#include <fcntl.h>
 
-char	*ft_turn(t_env *env)
+static char		*ft_play(t_env *env, char *me, char *opp)
 {
-	int		fd;
-	size_t	i;
+	return (ft_right_left(env, me, opp));
+}
 
-	fd = open("./check", O_RDWR | O_APPEND);
-	ft_putendl_fd("READ MAP SEULE", fd);
-	i = 0;
-	while (i < env->size_line)
-	{
-		ft_putendl_fd(env->map[i], fd);
-		i++;
-	}
-	ft_putendl_fd("FIN READ MAP SEULE", fd);
-	ft_putendl_fd("READ PIECE SEULE", fd);
-	i = 0;
-	while (i < env->p_size_line)
-	{
-		ft_putendl_fd(env->piece[i], fd);
-		i++;
-	}
-	ft_putendl_fd("FIN READ PIECE SEULE", fd);
-	close(fd);
-	ft_env_reset(env);
-	return (NULL);
+char			*ft_turn(t_env *env)
+{
+	if (env->player == 1)
+		return (ft_play(env, "oO", "xX"));
+	else if (env->player == 2)
+		return (ft_play(env, "xX", "oO" ));
+	else
+		return (NULL);
 }
