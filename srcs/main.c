@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 11:01:54 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/17 18:06:57 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/17 20:03:47 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		main(void)
 	static t_env	*env = NULL;
 	char			*play;
 
+	while (1)
+	{
 	if (env == NULL)
 		if ((env = ft_env_init()) == NULL)
 			return (0);
@@ -40,5 +42,9 @@ int		main(void)
 	ft_strdel_char2(&env->map);
 	env->size_col = 0;
 	env->size_line = 0;
+	ft_strdel_char2(&env->piece);
+	env->p_size_col = 0;
+	env->p_size_line = 0;
+	}
 	return (0);
 }

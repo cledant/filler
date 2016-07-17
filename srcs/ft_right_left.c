@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 14:23:58 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/17 17:51:31 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/17 19:43:44 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char			*ft_right_left(t_env *env, char *me, char *opp)
 		while (i[0] < env->size_col)
 		{
 			if (ft_can_fit(env, i, me , opp) == 1)
-				return (ft_create_char(i[0], i[1]));
+				return (ft_create_char(i[1], i[0]));
 			i[0]++;
 		}
 		i[0] = 0;

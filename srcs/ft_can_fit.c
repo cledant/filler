@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 16:31:29 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/17 18:05:06 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/17 19:42:00 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static int		ft_check_fit(t_env *env, size_t (*c)[5], char *me, char *opp)
 {
 	if (env->piece[(*c)[1]][(*c)[0]] == '.')
 		return (1);
-	if (ft_strchr(me, env->map[(*c)[1]][*(c)[0]]) != NULL)
+	if (ft_strchr(me, env->map[(*c)[3]][(*c)[2]]) != NULL)
 		(*c)[4]++;
-	if (ft_strchr(opp, env->map[(*c)[1]][*(c)[0]]) != NULL)
+	if (ft_strchr(opp, env->map[(*c)[3]][(*c)[2]]) != NULL)
 		return (0);
 	if ((*c)[4] > 1)
 		return (0);
