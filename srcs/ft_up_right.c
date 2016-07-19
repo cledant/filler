@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_right_left.c                                    :+:      :+:    :+:   */
+/*   ft_up_right.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/17 14:23:58 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/19 10:19:12 by cledant          ###   ########.fr       */
+/*   Created: 2016/07/19 14:06:07 by cledant           #+#    #+#             */
+/*   Updated: 2016/07/19 14:30:32 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char		*ft_create_char(size_t i, size_t j)
 	return (ret);
 }
 
-char			*ft_right_left(t_env *env, char *me, char *opp)
+char			*ft_up_left(t_env *env, char *me, char *opp)
 {
 	size_t	i[2];
 
