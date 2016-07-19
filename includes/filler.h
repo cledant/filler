@@ -6,13 +6,15 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 11:44:21 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/17 17:33:49 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/19 11:26:46 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLER_H
 # define FILLER_H
 
+# define BIG_BUFF 200000
+# define SPEED 500000000
 # include "libft.h"
 
 typedef struct		s_env
@@ -25,6 +27,8 @@ typedef struct		s_env
 	size_t			p_size_col;
 	size_t			p_size_line;
 	char			**piece;
+	size_t			speed_max;
+	size_t			plan;
 }					t_env;
 
 t_list				*ft_lstnewpushback(t_list *new, void *buff, size_t size);

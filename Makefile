@@ -6,13 +6,13 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/07/17 18:59:23 by cledant          ###   ########.fr        #
+#    Updated: 2016/07/18 10:42:45 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -O2
+CFLAGS = -Wall -Werror -Wextra
 
 INCLUDES = ./includes
 

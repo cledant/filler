@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read_fd_0.c                                     :+:      :+:    :+:   */
+/*   ft_what_to_do.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/28 10:47:49 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/19 10:18:58 by cledant          ###   ########.fr       */
+/*   Created: 2016/07/19 11:37:48 by cledant           #+#    #+#             */
+/*   Updated: 2016/07/19 11:56:44 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-t_list		*ft_read_fd_0(void)
+size_t		ft_what_do_do(t_env *env, char *me, char *opp)
 {
-	t_list	*read_1;
-	t_list	*gnl;
+	size_t	player[4];
 
-	read_1 = NULL;
-	if ((read_1 = ft_lstreadraw_file(0)) == NULL)
-		return (NULL);
-//	ft_putendl_fd("RAW READ DONE", 2);
-	if ((gnl = ft_lstgnl(read_1)) == NULL)
+	ft_bzero(other, sizeof(size_t) * 4);
+	ft_seek_position(env, me, opp);
+	if (player[0] >= player[2])
 	{
-		ft_lstdel(&read_1, ft_lstfree_malloc);
-		return (NULL);
+		if (player[1] >= player[3])
+			return (1);
+		else
+			return (2);
 	}
-	ft_lstdel(&read_1, ft_lstfree_malloc);
-	return (gnl);
 }
