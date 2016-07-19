@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 14:39:28 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/19 14:46:03 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/20 01:23:29 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char			*ft_down_left(t_env *env, char *me, char *opp)
 
 	ft_bzero(i, sizeof(size_t) * 2);
 	i[1] = env->size_line - 1;
-	while (i[1])
+	while (1)
 	{
 		while (i[0] < env->size_col)
 		{
@@ -63,9 +63,9 @@ char			*ft_down_left(t_env *env, char *me, char *opp)
 //			ft_putnbrendl_fd(i[0], 2);
 		}
 		i[0] = 0;
-		i[1]--;
 		if (i[1] == 0)
 			break ;
+		i[1]--;
 	}
 	return (ft_strdup("0 0"));
 }
