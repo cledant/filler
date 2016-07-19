@@ -24,12 +24,12 @@ static void		ft_seek_position(t_env *env, char *me, char *opp,
 	{
 		while (j < env->size_col)
 		{
-			if (ft_strchr(me, env->map[i][j]) = NULL)
+			if (ft_strchr(me, env->map[i][j]) != NULL)
 			{
 				(*p)[0] = i;
 				(*p)[1] = j;
 			}
-			if (ft_strchr(opp, env->map[i][j]) = NULL)
+			if (ft_strchr(opp, env->map[i][j]) != NULL)
 			{
 				(*p)[2] = i;
 				(*p)[3] = j;
@@ -41,14 +41,14 @@ static void		ft_seek_position(t_env *env, char *me, char *opp,
 	}
 }
 
-size_t			ft_what_do_do(t_env *env, char *me, char *opp)
+size_t			ft_what_to_do(t_env *env, char *me, char *opp)
 {
 	size_t	player[4];
 
 	ft_bzero(player, sizeof(size_t) * 4);
 	ft_seek_position(env, me, opp, &player);
 	if (player[0] >= player[2])
-		(player[1] >= player[3]) ? return (1) : return (2);
+		return ((player[1] >= player[3]) ? 1 : 2);
 	else
-		(player[1] >= player[3]) ? return (3) : return (4);
+		return ((player[1] >= player[3]) ? 3 : 4);
 }

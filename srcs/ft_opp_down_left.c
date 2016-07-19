@@ -12,7 +12,7 @@
 
 #include "filler.h"
 
-char	*ft_opp_up_left(t_env *env, char *me, char *opp)
+char	*ft_opp_down_left(t_env *env, char *me, char *opp)
 {
 	size_t	i;
 	size_t	mode;
@@ -21,7 +21,7 @@ char	*ft_opp_up_left(t_env *env, char *me, char *opp)
 	mode = 0;
 	while (i < env->size_col)
 	{
-		if (ft_strchr(me, env->map[0][i]) != NULL)
+		if (ft_strchr(me, env->map[env->size_line - 1][i]) != NULL)
 			mode = 1;
 		i++;
 	}
@@ -33,7 +33,7 @@ char	*ft_opp_up_left(t_env *env, char *me, char *opp)
 		i++;
 	}
 	if (mode == 0)
-		return (ft_up_left(env, me, opp));
-	else
 		return (ft_down_left(env, me, opp));
+	else
+		return (ft_up_left(env, me, opp));
 }

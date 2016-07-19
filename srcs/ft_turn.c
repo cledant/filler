@@ -14,18 +14,20 @@
 
 static char		*ft_play(t_env *env, char *me, char *opp)
 {
-//	if (env->plan != 0)
-//		env->plan = ft_what_to_do(env, me, opp);
-//	if (env->plan == 1)
+	if (env->plan == 0)
+		env->plan = ft_what_to_do(env, me, opp);
+	ft_putstr_fd("PLAN :", 2);
+	ft_putnbrendl_fd(env->plan, 2);
+	if (env->plan == 1)
 		return (ft_opp_up_left(env, me, opp));
-//	else if (env->plan == 2)
-//		return (ft_opp_up_right(env, me, opp));
-//	else if (env->plan == 3)
-//		return (ft_opp_down_left(env, me, opp));
-//	else if (env->plan == 4)
-//		return (ft_opp_down_right(env, me, opp));
-//	else
-//		return (ft_right_left(env, me, opp));
+	else if (env->plan == 2)
+		return (ft_opp_up_right(env, me, opp));
+	else if (env->plan == 3)
+		return (ft_opp_down_left(env, me, opp));
+	else if (env->plan == 4)
+		return (ft_opp_down_right(env, me, opp));
+	else
+		return (ft_up_right(env, me, opp));
 }
 
 char			*ft_turn(t_env *env)

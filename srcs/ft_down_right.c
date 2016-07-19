@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_up_right.c                                      :+:      :+:    :+:   */
+/*   ft_down_left.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/19 14:06:07 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/19 14:30:32 by cledant          ###   ########.fr       */
+/*   Created: 2016/07/19 14:39:28 by cledant           #+#    #+#             */
+/*   Updated: 2016/07/19 14:46:03 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ static char		*ft_create_char(size_t i, size_t j)
 	return (ret);
 }
 
-char			*ft_up_right(t_env *env, char *me, char *opp)
+char			*ft_down_right(t_env *env, char *me, char *opp)
 {
 	size_t	i[2];
 
-	ft_bzero(i, sizeof(size_t) * 2);
 	i[0] = env->size_col - 1;
-	while (i[1] < env->size_line)
+	i[1] = env->size_line - 1;
+	while (i[1])
 	{
 		while (i[0])
 		{
@@ -65,7 +65,9 @@ char			*ft_up_right(t_env *env, char *me, char *opp)
 //			ft_putnbrendl_fd(i[0], 2);
 		}
 		i[0] = env->size_col - 1;
-		i[1]++;
+		i[1]--;
+		if (i[1] == 0)
+			break ;
 	}
 	return (ft_strdup("0 0"));
 }

@@ -45,10 +45,15 @@ int					ft_env_isolate_piece(t_env *env);
 char				*ft_turn(t_env *env);
 void				ft_putendl_fd_char2(char **str, int fd);
 char				*ft_add_char(char *dst, char add);
-char				*ft_up_left(t_env *env, char *me, char *opp);
-char				*ft_down_left(t_env *env, char *me, char *opp);
 int					ft_can_fit(t_env *env, size_t i[2], char *me, char *opp);
 size_t				ft_what_to_do(t_env *env, char *me, char *opp);
 char				*ft_opp_up_left(t_env *env, char *me, char *opp);
+char				*ft_opp_up_right(t_env *env, char *me, char *opp);
+char				*ft_opp_down_left(t_env *env, char *me, char *opp);
+char				*ft_opp_down_right(t_env *env, char *me, char *opp);
+char				*ft_up_left(t_env *env, char *me, char *opp);
+char				*ft_down_left(t_env *env, char *me, char *opp);
+char				*ft_up_right(t_env *env, char *me, char *opp);
+char				*ft_down_right(t_env *env, char *me, char *opp);
 
 #endif
