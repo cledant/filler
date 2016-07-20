@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 11:44:21 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/20 14:04:22 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/20 15:10:39 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void				ft_putendl_fd_char2(char **str, int fd);
 char				*ft_add_char(char *dst, char add);
 int					ft_can_fit(t_env *env, size_t i[2], char *me, char *opp);
 size_t				ft_what_to_do(t_env *env, char *me, char *opp);
+char				*ft_create_char(size_t i, size_t j);
 char				*ft_opp_up_left(t_env *env, char *me, char *opp);
 char				*ft_opp_up_right(t_env *env, char *me, char *opp);
 char				*ft_opp_down_left(t_env *env, char *me, char *opp);
