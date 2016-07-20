@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 13:39:14 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 16:43:34 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/20 13:37:11 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void		ft_reset(t_env *env, char ***new)
 {
 	if (new != NULL)
 		ft_strdel_char2(new);
-	ft_env_reset(env);
+	ft_env_destroy(&env);
 }
 
 int				ft_env_isolate_map(t_env *env)
@@ -27,7 +27,7 @@ int				ft_env_isolate_map(t_env *env)
 
 	if ((new = ft_strnew_char2(env->size_line)) == NULL)
 	{
-		ft_env_reset(env);
+		ft_env_destroy(&env);
 		return (0);
 	}
 	cpy_env = env->gnl;

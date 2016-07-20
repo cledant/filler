@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 11:44:21 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/20 01:28:59 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/20 14:04:22 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@
 
 typedef struct		s_env
 {
+	t_list			*gnl;
 	size_t			player;
 	size_t			size_col;
 	size_t			size_line;
-	t_list			*gnl;
 	char			**map;
 	size_t			p_size_col;
 	size_t			p_size_line;
 	char			**piece;
 	size_t			speed_max;
 	size_t			plan;
+	char			*play;
 }					t_env;
 
 t_list				*ft_lstnewpushback(t_list *new, void *buff, size_t size);
@@ -36,6 +37,7 @@ t_list				*ft_lstreadraw_file(int fd);
 t_list				*ft_lstgnl(t_list *read_1);
 t_list				*ft_read_fd_0(void);
 t_env				*ft_env_init(void);
+void				ft_env_destroy(t_env **env);
 void				ft_env_reset(t_env *env);
 int					ft_env_setplayer(t_env *env);
 int					ft_env_setsize(t_env *env);

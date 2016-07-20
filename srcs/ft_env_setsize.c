@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 12:00:37 by cledant           #+#    #+#             */
-/*   Updated: 2016/05/28 14:47:34 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/20 13:34:53 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_env_setsize(t_env *env)
 		{
 			if ((split = ft_strsplit(cpy_gnl->content, ' ')) == NULL)
 			{
-				ft_env_reset(env);
+				ft_env_destroy(&env);
 				return (0);
 			}
 			env->size_line = ft_atoi(split[1]);
@@ -34,6 +34,6 @@ int		ft_env_setsize(t_env *env)
 		}
 		cpy_gnl = cpy_gnl->next;
 	}
-	ft_env_reset(env);
+	ft_env_destroy(&env);
 	return (0);
 }

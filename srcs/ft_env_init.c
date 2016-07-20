@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 11:19:27 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/19 11:27:09 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/20 13:44:54 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ t_env	*ft_env_init(void)
 	new->speed_max = SPEED;
 	new->plan = 0;
 	new->piece = NULL;
+	new->play = NULL;
 	return (new);
 }
