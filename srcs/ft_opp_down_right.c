@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 13:43:00 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/20 15:13:42 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/20 17:16:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-static void		ft_change_attack_1(t_env *env, size_t *mode)
+static void		ft_change_attack_1(t_env *env, size_t *mode, char *me)
 {
 	size_t	i;
 
@@ -32,7 +32,7 @@ static void		ft_change_attack_1(t_env *env, size_t *mode)
 	}
 }
 
-static void		ft_change_attack_2(t_env *env, size_t *mode)
+static void		ft_change_attack_2(t_env *env, size_t *mode, char *me)
 {
 	size_t	i;
 
@@ -57,13 +57,20 @@ char			*ft_opp_down_right(t_env *env, char *me, char *opp)
 	size_t	mode;
 
 	mode = 0;
-	ft_change_attack_1(env, &mode);
+	ft_change_attack_1(env, &mode, me);
 	if (mode == 1)
-		ft_change_attack_2(env, &mode);
+		ft_change_attack_2(env, &mode, me);
 	if (mode == 0)
 		return (ft_down_right(env, me, opp));
-	else (mode == 1)
+	else if (mode == 1)
 		return (ft_up_right(env, me, opp));
 	else
-		return (ft_up_left_two(env, me, opp));
+	{
+		if (ft_is_bot_free(env, opp) == 1)
+			return (ft_down_right_two(env, me, opp));
+		else if (ft_is_top_free(env, opp) == 1)
+			return (ft_up_right_two(env, me, opp));
+		else
+			return (ft_up_right(env, me, opp));
+	}
 }

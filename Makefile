@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/07/20 15:11:05 by cledant          ###   ########.fr        #
+#    Updated: 2016/07/20 17:01:46 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC_NAME = main.c ft_lstnewpushback.c ft_lstreadraw_file.c ft_lstgnl.c \
 		   ft_env_isolate_piece.c ft_env_setpiecesize.c ft_up_left.c \
 		   ft_can_fit.c ft_down_left.c ft_opp_up_left.c ft_create_char.c \
 		   ft_opp_up_right.c ft_opp_down_left.c ft_opp_down_right.c \
-		   ft_down_right.c ft_up_right.c ft_what_to_do.c ft_env_destroy.c
+		   ft_down_right.c ft_up_right.c ft_what_to_do.c ft_env_destroy.c \
+		   ft_down_right_two.c
  
 SRC_PATH = ./srcs/
 

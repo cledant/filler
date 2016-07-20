@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 11:44:21 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/20 15:10:39 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/20 17:19:34 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ char				*ft_add_char(char *dst, char add);
 int					ft_can_fit(t_env *env, size_t i[2], char *me, char *opp);
 size_t				ft_what_to_do(t_env *env, char *me, char *opp);
 char				*ft_create_char(size_t i, size_t j);
+int					ft_is_bot_free(t_env *env, char *opp);
+int					ft_is_top_free(t_env *env, char *opp);
 char				*ft_opp_up_left(t_env *env, char *me, char *opp);
 char				*ft_opp_up_right(t_env *env, char *me, char *opp);
 char				*ft_opp_down_left(t_env *env, char *me, char *opp);
@@ -58,5 +60,7 @@ char				*ft_up_left(t_env *env, char *me, char *opp);
 char				*ft_down_left(t_env *env, char *me, char *opp);
 char				*ft_up_right(t_env *env, char *me, char *opp);
 char				*ft_down_right(t_env *env, char *me, char *opp);
+char				*ft_down_right_two(t_env *env, char *me, char *opp);
+char				*ft_up_right_two(t_env *env, char *me, char *opp);
 
 #endif
