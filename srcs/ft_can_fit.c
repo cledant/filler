@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 16:31:29 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/18 12:59:27 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/21 18:18:18 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int		ft_check_fit(t_env *env, size_t (*c)[5], char *me, char *opp)
 	return (1);
 }
 
-int		ft_can_fit(t_env *env, size_t i[2], char *me, char *opp)
+int				ft_can_fit(t_env *env, size_t i[2], char *me, char *opp)
 {
 	size_t	c[5];
 

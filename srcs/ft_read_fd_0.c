@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 10:47:49 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/19 10:18:58 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/21 18:35:15 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_list		*ft_read_fd_0(void)
 	read_1 = NULL;
 	if ((read_1 = ft_lstreadraw_file(0)) == NULL)
 		return (NULL);
-//	ft_putendl_fd("RAW READ DONE", 2);
 	if ((gnl = ft_lstgnl(read_1)) == NULL)
 	{
 		ft_lstdel(&read_1, ft_lstfree_malloc);

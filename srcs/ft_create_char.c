@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 15:09:50 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/20 15:10:46 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/21 18:10:12 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-static void		ft_clean(char **line, char	**col)
+static void		ft_clean(char **line, char **col)
 {
 	if (*line != NULL)
 		ft_strdel(line);
