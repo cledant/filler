@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 11:44:21 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/20 17:19:34 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/21 01:31:09 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,9 @@ char				*ft_up_right(t_env *env, char *me, char *opp);
 char				*ft_down_right(t_env *env, char *me, char *opp);
 char				*ft_down_right_two(t_env *env, char *me, char *opp);
 char				*ft_up_right_two(t_env *env, char *me, char *opp);
+char				*ft_up_left_two(t_env *env, char *me, char *opp);
+char				*ft_down_left_two(t_env *env, char *me, char *opp);
+char				*ft_up_left_three(t_env *env, char *me, char *opp);
+char				*ft_down_left_three(t_env *env, char *me, char *opp);
 
 #endif
