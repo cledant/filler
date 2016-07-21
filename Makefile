@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/07/21 12:56:18 by cledant          ###   ########.fr        #
+#    Updated: 2016/07/21 16:12:05 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRC_NAME = main.c ft_lstnewpushback.c ft_lstreadraw_file.c ft_lstgnl.c \
 		   ft_down_right_two.c ft_up_right_two.c ft_is_bot_free.c \
 		   ft_is_top_free.c ft_down_left_two.c ft_up_left_two.c \
 		   ft_up_left_three.c ft_down_left_three.c ft_up_left_four.c \
-		   ft_down_left_four.c
+		   ft_down_left_four.c ft_down_right_three.c ft_up_right_three.c
  
 SRC_PATH = ./srcs/
 

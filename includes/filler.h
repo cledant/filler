@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 11:44:21 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/21 12:54:06 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/21 15:40:18 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,18 @@ char				*ft_opp_up_right(t_env *env, char *me, char *opp);
 char				*ft_opp_down_left(t_env *env, char *me, char *opp);
 char				*ft_opp_down_right(t_env *env, char *me, char *opp);
 char				*ft_up_left(t_env *env, char *me, char *opp);
+char				*ft_up_left_two(t_env *env, char *me, char *opp);
+char				*ft_up_left_three(t_env *env, char *me, char *opp);
+char				*ft_up_left_four(t_env *env, char *me, char *opp);
 char				*ft_down_left(t_env *env, char *me, char *opp);
+char				*ft_down_left_two(t_env *env, char *me, char *opp);
+char				*ft_down_left_three(t_env *env, char *me, char *opp);
+char				*ft_down_left_four(t_env *env, char *me, char *opp);
 char				*ft_up_right(t_env *env, char *me, char *opp);
+char				*ft_up_right_two(t_env *env, char *me, char *opp);
+char				*ft_up_right_three(t_env *env, char *me, char *opp);
 char				*ft_down_right(t_env *env, char *me, char *opp);
 char				*ft_down_right_two(t_env *env, char *me, char *opp);
-char				*ft_up_right_two(t_env *env, char *me, char *opp);
-char				*ft_up_left_two(t_env *env, char *me, char *opp);
-char				*ft_down_left_two(t_env *env, char *me, char *opp);
-char				*ft_up_left_three(t_env *env, char *me, char *opp);
-char				*ft_down_left_three(t_env *env, char *me, char *opp);
-char				*ft_up_left_four(t_env *env, char *me, char *opp);
-char				*ft_down_left_four(t_env *env, char *me, char *opp);
-
+char				*ft_down_right_three(t_env *env, char *me, char *opp);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 13:43:00 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/21 13:54:40 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/21 15:09:16 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,19 +67,10 @@ char			*ft_opp_down_right(t_env *env, char *me, char *opp)
 	else
 	{
 		if (ft_is_bot_free(env, opp) == 1)
-		{
-			ft_putendl_fd("CAS 1", 2);
 			return (ft_down_right_two(env, me, opp));
-		}
 		else if (ft_is_top_free(env, opp) == 1)
-		{
-			ft_putendl_fd("CAS 2", 2);
 			return (ft_up_right_two(env, me, opp));
-		}
 		else
-		{
-			ft_putendl_fd("CAS 3", 2);
 			return (ft_up_right(env, me, opp));
-		}
 	}
 }
