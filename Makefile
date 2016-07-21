@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/07/21 16:12:05 by cledant          ###   ########.fr        #
+#    Updated: 2016/07/21 23:17:28 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRC =	$(addprefix $(SRC_PATH),$(SRC_NAME))
 
 OBJ =	$(SRC_NAME:.c=.o)
 
-NAME = nyan_bot
+NAME = cledant
 
 all :	libft $(NAME)
 
