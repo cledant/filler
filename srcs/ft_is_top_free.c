@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 19:29:00 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/20 19:31:31 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/21 13:54:33 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int		ft_is_top_free(t_env *env, char *opp)
 	while (i < env->size_col)
 	{
 		if (ft_strchr(opp, env->map[0][i]) != NULL)
-			return (1);
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
