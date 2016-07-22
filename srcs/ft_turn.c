@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/28 14:58:54 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/21 18:35:18 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/22 15:09:42 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static char		*ft_play(t_env *env, char *me, char *opp)
 {
 	if (env->plan == 0)
 		env->plan = ft_what_to_do(env, me, opp);
-	ft_putstr_fd("PLAN :", 2);
-	ft_putnbrendl_fd(env->plan, 2);
 	if (env->plan == 1)
 		return (ft_opp_up_left(env, me, opp));
 	else if (env->plan == 2)
