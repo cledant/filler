@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 11:37:48 by cledant           #+#    #+#             */
-/*   Updated: 2016/07/19 13:38:28 by cledant          ###   ########.fr       */
+/*   Updated: 2016/07/22 15:43:05 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ size_t			ft_what_to_do(t_env *env, char *me, char *opp)
 	ft_bzero(player, sizeof(size_t) * 4);
 	ft_seek_position(env, me, opp, &player);
 	if (player[0] >= player[2])
-		return ((player[1] >= player[3]) ? 1 : 2);
+		return ((player[1] > player[3]) ? 1 : 2);
 	else
-		return ((player[1] >= player[3]) ? 3 : 4);
+		return ((player[1] > player[3]) ? 3 : 4);
 }
