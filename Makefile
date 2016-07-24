@@ -38,7 +38,7 @@ SRC =	$(addprefix $(SRC_PATH),$(SRC_NAME))
 
 OBJ =	$(SRC_NAME:.c=.o)
 
-NAME = cledant
+NAME = cledant.filler
 
 all :	libft $(NAME)
 
